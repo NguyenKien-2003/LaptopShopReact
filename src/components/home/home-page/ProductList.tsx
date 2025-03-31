@@ -77,11 +77,11 @@ const ProductList: React.FC = () => {
         if (window.innerWidth <= 640) {
             setPadding(0);
         } else if (window.innerWidth <= 768) {
-            setPadding(8);
+            setPadding(4);
         } else if (window.innerWidth <= 1024) {
-            setPadding(16);
+            setPadding(8);
         } else {
-            setPadding(20);
+            setPadding(12);
         }
     };
 
@@ -118,12 +118,12 @@ const ProductList: React.FC = () => {
                 >
                     <h2 className="text-3xl font-bold text-gray-800 relative">
                         SẢN PHẨM MỚI
-                        <span className="block h-1 w-20 bg-blue-600 mt-2"></span>
+                        <span className="block h-1 w-20 bg-red-600 mt-2"></span>
                     </h2>
                     <motion.button 
                         whileHover={{ scale: 1.05 }} 
                         whileTap={{ scale: 0.95 }}
-                        className="text-blue-600 font-medium hover:text-blue-800 flex items-center"
+                        className="text-red-600 font-medium hover:text-redred-800 flex items-center"
                         onClick={() => navigate('/product-page')}
                     >
                         Xem tất cả
@@ -188,7 +188,7 @@ const ProductList: React.FC = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-white p-2.5 rounded-full shadow-lg hover:bg-blue-50 text-blue-600"
+                                    className="bg-white p-2.5 rounded-full shadow-lg hover:bg-red-50 text-red-600"
                                     onClick={(e) => addProductToCart(product.id, e)}
                                 >
                                     <FaCartPlus size={20} />
@@ -197,7 +197,7 @@ const ProductList: React.FC = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-white p-2.5 rounded-full shadow-lg hover:bg-blue-50 text-blue-600"
+                                    className="bg-white p-2.5 rounded-full shadow-lg hover:bg-red-50 text-red-600"
                                     onClick={(e) => handleOpenProductDialog(product, e)}
                                 >
                                     <CgDetailsMore size={20} />

@@ -71,11 +71,11 @@ const TopProductList: React.FC = () => {
         if (window.innerWidth <= 640) {
             setPadding(0);
         } else if (window.innerWidth <= 768) {
-            setPadding(8);
+            setPadding(4);
         } else if (window.innerWidth <= 1024) {
-            setPadding(16);
+            setPadding(8);
         } else {
-            setPadding(20);
+            setPadding(12);
         }
     };
 
@@ -110,7 +110,7 @@ const TopProductList: React.FC = () => {
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-${padding} hover:cursor-pointer`}
+                className={`grid grid-cols-1 sm:grid-cols-2 my-4 md:grid-cols-3 lg:grid-cols-4 gap-6 px-${padding} hover:cursor-pointer`}
             >
                 {products.map((product) => (
                     <motion.div

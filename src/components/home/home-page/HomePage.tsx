@@ -2,6 +2,8 @@ import React from 'react';
 import Slideshow from './SlideShow';
 import ProductList from './ProductList';
 import TopProductList from './TopProductList';
+import ProductCategory from './ProductCategory';
+
 
 const HomePage: React.FC = () => {
   return (
@@ -9,7 +11,7 @@ const HomePage: React.FC = () => {
       <Slideshow />
       <TopProductList />
       <ProductList />
-      
+      <ProductCategory />
     </div>
   );
 };
