@@ -102,8 +102,10 @@ const TopProductList: React.FC = () => {
     }, []);
 
     return (
-        <section className="py-12 px-4">
-            <h2 className="text-2xl font-bold mb-4">SẢN PHẨM BÁN CHẠY</h2>
+        <section className="py-4 my-4 mx-2 bg-colorbg rounded-xl flex flex-col items-center">
+    
+            <img src="./assets/img/other/san-pham-noi-bat-20-03-2024.gif" alt="" width={480} height={120}/>
+  
             <div className="container mx-auto">                <motion.div
                 variants={container}
                 initial="hidden"

@@ -7,8 +7,9 @@ const HomePage: React.FC = () => {
   return (
     <div className='px-28'>
       <Slideshow />
-      <ProductList />
       <TopProductList />
+      <ProductList />
+      
     </div>
   );
 };

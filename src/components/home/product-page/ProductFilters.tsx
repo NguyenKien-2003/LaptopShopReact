@@ -152,14 +152,14 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
         marginLeft: 1,
       }}
     >
-      <Box className="bg-blue-50 p-4 flex items-center justify-between">
+      <Box className="bg-red-50 p-4 flex items-center justify-between">
         <Typography variant="h6" className="font-bold flex items-center">
           <FilterList className="mr-2" />
           Bộ lọc
           {totalActiveFilters > 0 && (
             <Badge
               badgeContent={totalActiveFilters}
-              color="primary"
+              color="error"
               className="ml-2"
             />
           )}
@@ -199,7 +199,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                   <Chip
                     label={`${brand.name}`}
                     onDelete={() => handleRemoveBrandFilter(brand.id)}
-                    color="primary"
+                    color="success"
                     variant="outlined"
                     className="shadow-sm"
                   />
@@ -219,7 +219,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                   <Chip
                     label={`${category.name}`}
                     onDelete={() => handleRemoveBrandFilter(category.id)}
-                    color="primary"
+                    color="info"
                     variant="outlined"
                     className="shadow-sm"
                   />
@@ -236,7 +236,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
         >
           <AccordionSummary expandIcon={<ExpandMore />} className="bg-gray-50">
             <Typography className="flex items-center font-semibold">
-              <MonetizationOn className="mr-2 text-blue-600" />
+              <MonetizationOn className="mr-2 text-red-600" />
               Khoảng giá
             </Typography>
           </AccordionSummary>
@@ -257,10 +257,10 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                   <FormControlLabel
                     key={option.value}
                     value={option.value}
-                    control={<Radio color="primary" />}
+                    control={<Radio color="error" />}
                     label={option.label}
-                    className={`transition-all duration-200 hover:bg-blue-50 rounded-md px-2 ${
-                      priceRange === option.value ? "bg-blue-100" : ""
+                    className={`transition-all duration-200 hover:bg-red-50 rounded-md px-2 ${
+                      priceRange === option.value ? "bg-red-100" : ""
                     }`}
                   />
                 ))}
@@ -276,12 +276,12 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
         >
           <AccordionSummary expandIcon={<ExpandMore />} className="bg-gray-50">
             <Typography className="flex items-center font-semibold">
-              <BusinessCenter className="mr-2 text-blue-600" />
+              <BusinessCenter className="mr-2 text-red-600" />
               Hãng sản xuất
               {selectedBrandIds.length > 0 && (
                 <Badge
                   badgeContent={selectedBrandIds.length}
-                  color="primary"
+                  color="error"
                   className="ml-2"
                 />
               )}
@@ -302,12 +302,12 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                             : selectedBrandIds.filter((b) => b !== brand.id);
                           setSelectedBrandIds(newBrands);
                         }}
-                        color="primary"
+                        color="error"
                       />
                     }
                     label={brand.name}
-                    className={`transition-all duration-200 hover:bg-blue-50 rounded-md ${
-                      selectedBrandIds.includes(brand.id) ? "bg-blue-100" : ""
+                    className={`transition-all duration-200 hover:bg-red-50 rounded-md ${
+                      selectedBrandIds.includes(brand.id) ? "bg-red-100" : ""
                     }`}
                   />
                 ))}
@@ -323,12 +323,12 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
         >
           <AccordionSummary expandIcon={<ExpandMore />} className="bg-gray-50">
             <Typography className="flex items-center font-semibold">
-              <BusinessCenter className="mr-2 text-blue-600" />
+              <BusinessCenter className="mr-2 text-red-600" />
               Loại laptop
               {selectedCategoryIds.length > 0 && (
                 <Badge
                   badgeContent={selectedCategoryIds.length}
-                  color="primary"
+                  color="error"
                   className="ml-2"
                 />
               )}
@@ -349,12 +349,12 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                             : selectedCategoryIds.filter((c) => c !== category.id);
                           setSelectedCategoryIds(newCategories);
                         }}
-                        color="primary"
+                        color="error"
                       />
                     }
                     label={category.name}
-                    className={`transition-all duration-200 hover:bg-blue-50 rounded-md ${
-                      selectedCategoryIds.includes(category.id) ? "bg-blue-100" : ""
+                    className={`transition-all duration-200 hover:bg-red-50 rounded-md ${
+                      selectedCategoryIds.includes(category.id) ? "bg-red-100" : ""
                     }`}
                   />
                 ))}
@@ -367,7 +367,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
       <Box className="p-4 bg-gray-50 flex flex-col sm:flex-row justify-center gap-2">
         <Button
           variant="contained"
-          color="primary"
+          color="error"
           onClick={handleApplyFilters}
           className="transition-transform duration-200 hover:scale-105"
           fullWidth

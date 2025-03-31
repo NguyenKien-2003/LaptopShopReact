@@ -46,7 +46,7 @@ const ProductDialog: React.FC<ProductDialogProps> = ({ products, isOpen, onClose
                 <TableCell align="center">Tên sản phẩm</TableCell>
                 <TableCell align="center">Giá bán</TableCell>
                 <TableCell align="center">Số lượng</TableCell>
-                <TableCell align="center">Năm xuất / tái bản</TableCell>
+                <TableCell align="center">Năm sản xuất</TableCell>
                 <TableCell align="center">Hành động</TableCell>
               </TableRow>
             </TableHead>

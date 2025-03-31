@@ -117,7 +117,7 @@ const Slideshow: React.FC = () => {
               <img
                 src={slide.src}
                 alt={slide.alt}
-                className="w-full h-auto cursor-pointer"
+                className="w-full h-auto cursor-pointer rounded-xl"
               />
             </div>
           </Link>

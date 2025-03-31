@@ -54,7 +54,7 @@ const ProductTable: React.FC<ProductTableProps> = ({invoice, totalAmount, handle
                                                     </Box>
                                                 )
                                             }
-                                            <Typography variant="body2">Năm xuất / tái bản: {product.size}</Typography>
+                                            <Typography variant="body2">Năm sản xuất: {product.size}</Typography>
                                         </Box>
                                     </Box>
                                 </TableCell>

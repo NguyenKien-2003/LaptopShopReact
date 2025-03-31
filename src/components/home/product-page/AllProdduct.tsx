@@ -176,7 +176,7 @@ const AllProdduct: React.FC = () => {
                             <motion.div
                                 key={product.id}
                                 variants={item}
-                                className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 relative group"
+                                className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 relative group rounded-xl"
                                 whileHover={{ y: -5 }}
                             >
                                 <div 

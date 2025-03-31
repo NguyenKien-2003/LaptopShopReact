@@ -22,7 +22,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className="sticky top-0 bg-red-custom text-text-color-custom p-2 left-0 right-0  px-[120px] mb-[-132px] mt-[-10px]"
+      className="sticky top-0 bg-red-custom text-white p-2 left-0 right-0  px-[120px] mb-[-132px] mt-[-10px]"
       style={{ zIndex: 1100 }}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
                 to="/"
                 className={({ isActive }) =>
                   ` font-semibold mt-3 text-[16px] ${
-                    isActive ? "pb-1 border-b-2 border-text-color-custom" : ""
+                    isActive ? "pb-1 border-b-2 border-white" : ""
                   }`
                 }
               >
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                 to="/product-page"
                 className={({ isActive }) =>
                   ` font-semibold mt-3 text-[16px] ${
-                    isActive ? "pb-1 border-b-2 border-text-color-custom" : ""
+                    isActive ? "pb-1 border-b-2 border-white" : ""
                   }`
                 }
               >
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                 to="/intro"
                 className={({ isActive }) =>
                   ` font-semibold mt-3 text-[16px] ${
-                    isActive ? "pb-1 border-b-2 border-text-color-custom" : ""
+                    isActive ? "pb-1 border-b-2 border-white" : ""
                   }`
                 }
               >
@@ -70,7 +70,7 @@ const Header: React.FC = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   ` font-semibold mt-3 text-[16px] ${
-                    isActive ? "pb-1 border-b-2 border-text-color-custom" : ""
+                    isActive ? "pb-1 border-b-2 border-white" : ""
                   }`
                 }
               >

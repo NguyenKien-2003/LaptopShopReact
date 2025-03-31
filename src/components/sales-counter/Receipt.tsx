@@ -18,8 +18,8 @@ const Receipt: React.FC<ReceiptProps> = ({ orderId, customerName, phoneNumber, a
 
   return (
     <Box p={4}>
-      <Typography variant="h4" align="center">SHOE BEE</Typography>
-      <Typography variant="subtitle1" align="center">Chương trình Cao đẳng FPT Polytechnic</Typography>
+      <Typography variant="h4" align="center">LAPTOPKZ</Typography>
+      <Typography variant="subtitle1" align="center">SẢN PHẨM CHÍNH HÃNG</Typography>
       <Typography variant="subtitle2" align="center">Mã hóa đơn: {orderId}</Typography>
       <Typography variant="body1">Khách hàng: {customerName}</Typography>
       <Typography variant="body1">Số điện thoại: {phoneNumber}</Typography>

@@ -6,8 +6,9 @@ module.exports = {
     extend: {
       colors: {
         'my-custom-color': '#3182ce',
-                'red-custom': '#D70018',
-        'text-color-custom' : '#D4D4D4'
+        'red-custom': '#D70018',
+        'text-color-custom' : '#D4D4D4',
+        'colorbg': '#F9405E'
       },
     },
   },
