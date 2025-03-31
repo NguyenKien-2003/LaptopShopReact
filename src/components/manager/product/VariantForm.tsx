@@ -36,33 +36,33 @@ const VariantForm: React.FC<VariantFormProps> = ({
     setVariants,
 }) => {
     // Hàm nhóm các biến thể theo màu sắc
-    const groupByColor = (variants: Variant[]) => {
+    const groupBySize = (variants: Variant[]) => {
         return variants.reduce((groups, variant) => {
-            const color = variant.color;
-            if (!groups[color]) groups[color] = [];
-            groups[color].push(variant);
+            const size = variant.size;
+            if (!groups[size]) groups[size] = [];
+            groups[size].push(variant);
             return groups;
         }, {} as Record<string, Variant[]>);
     };
 
-    const groupedVariants = groupByColor(variants);
+    const groupedVariants = groupBySize(variants);
 
     // Hàm xử lý thay đổi avatar cho một nhóm
-    const handleAvatarChangeForGroup = (color: string, e: any) => {
+    const handleAvatarChangeForGroup = (size: number, e: any) => {
         const file = e.target.files[0];
         const preview = URL.createObjectURL(file);
         const updatedVariants = variants.map((variant) =>
-            variant.color === color ? { ...variant, avatar: file, avatarPreview: preview } : variant
+            variant.size === size ? { ...variant, avatar: file, avatarPreview: preview } : variant
         );
         setVariants(updatedVariants);
     };
 
     // Hàm xử lý thay đổi ảnh liên quan cho một nhóm
-    const handleRelatedImagesChangeForGroup = (color: string, e: any) => {
+    const handleRelatedImagesChangeForGroup = (size: number, e: any) => {
         const files: File[] = Array.from(e.target.files);
         const previews = files.map((file) => URL.createObjectURL(file as Blob));
         const updatedVariants = variants.map((variant) =>
-            variant.color === color
+            variant.size === size
                 ? {
                       ...variant,
                       relatedImages: [...variant.relatedImages, ...files].slice(0, 6),
@@ -74,9 +74,9 @@ const VariantForm: React.FC<VariantFormProps> = ({
     };
 
     // Hàm xử lý xóa ảnh liên quan
-    const handleRemoveRelatedImage = (color: string, index: number) => {
+    const handleRemoveRelatedImage = (size: number, index: number) => {
         const updatedVariants = variants.map((variant) =>
-            variant.color === color
+            variant.size === size
                 ? {
                       ...variant,
                       relatedImages: variant.relatedImages.filter((_, i) => i !== index),
@@ -111,14 +111,14 @@ const VariantForm: React.FC<VariantFormProps> = ({
                 Danh sách biến thể
             </Typography>
             <Grid container spacing={2}>
-                {Object.entries(groupedVariants).map(([color, variantsInGroup]) => (
-                    <Grid item xs={12} md={6} lg={12} key={color}>
+                {Object.entries(groupedVariants).map(([size, variantsInGroup]) => (
+                    <Grid item xs={12} md={6} lg={12} key={size}>
                         <Card sx={{ padding: 2, border: '1px solid #ccc', borderRadius: 2 }}>
                             {/* Avatar chung cho nhóm */}
                             <Box sx={{ minHeight: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', marginY: 2 }}>
                                 <Typography sx={{ marginRight: 3 }}>Ảnh hiển thị: </Typography>
                                 <label
-                                    htmlFor={`avatar-upload-${color}`}
+                                    htmlFor={`avatar-upload-${size}`}
                                     style={{
                                         display: 'inline-block',
                                         width: 100,
@@ -135,9 +135,9 @@ const VariantForm: React.FC<VariantFormProps> = ({
                                 >
                                     <input
                                         type="file"
-                                        id={`avatar-upload-${color}`}
+                                        id={`avatar-upload-${size}`}
                                         style={{ display: 'none' }}
-                                        onChange={(e) => handleAvatarChangeForGroup(color, e)}
+                                        onChange={(e) => handleAvatarChangeForGroup(Number(size) as number, e)}
                                     />
                                 </label>
                             </Box>
@@ -167,7 +167,7 @@ const VariantForm: React.FC<VariantFormProps> = ({
                                                         top: -25,
                                                         right: -12,
                                                     }}
-                                                    onClick={() => handleRemoveRelatedImage(color, i)}
+                                                    onClick={() => handleRemoveRelatedImage(Number(size) as number, i)}
                                                 >
                                                     &times;
                                                 </IconButton>
@@ -182,7 +182,8 @@ const VariantForm: React.FC<VariantFormProps> = ({
                                                 type="file"
                                                 hidden
                                                 multiple
-                                                onChange={(e) => handleRelatedImagesChangeForGroup(color, e)}
+                                                onChange={(e) => handleRelatedImagesChangeForGroup(Number(size) as number, e)}
+
                                             />
                                         </IconButton>
                                     )}
@@ -192,7 +193,8 @@ const VariantForm: React.FC<VariantFormProps> = ({
                             {/* Danh sách biến thể trong nhóm */}
                             {variantsInGroup.map((variant, index) => (
                                 <Box key={index} sx={{ marginTop: 2 }}>
-                                    <Typography><strong>Năm xuất / tái bản: {variant.size}</strong></Typography>
+                                    <Typography><strong>Năm sản xuất: {variant.size}</strong></Typography>
+                                    <Typography><strong>Cấu hình: {variant.color}</strong></Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
                                         <Grid item xs={12} sm={4}>
                                             <TextField

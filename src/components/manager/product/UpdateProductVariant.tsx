@@ -245,8 +245,8 @@ const UpdateProductVariant: React.FC = () => {
                 {/* <TextField label="Giá" type="number" value={price} onChange={(e) => setPrice(e.target.value ? Number(e.target.value) : '')} fullWidth required /> */}
 
                 <FormControl fullWidth>
-                    <InputLabel id="brand-select-label">Nhà xuất bản</InputLabel>
-                    <Select labelId="brand-select-label" value={selectedBrand || 'no-brand'} onChange={(e) => setSelectedBrand(Number(e.target.value))} label="Nhà xuất bản" required>
+                    <InputLabel id="brand-select-label">Hãng sản xuất</InputLabel>
+                    <Select labelId="brand-select-label" value={selectedBrand || 'no-brand'} onChange={(e) => setSelectedBrand(Number(e.target.value))} label="Hãng sản xuất" required>
                         <MenuItem value="no-brand">Chưa chọn</MenuItem>
                         {brands.map((brand) => (
                             <MenuItem key={brand.id} value={brand.id}>{brand.name}</MenuItem>
@@ -282,6 +282,7 @@ const UpdateProductVariant: React.FC = () => {
                         <th className="border p-2">Mã sản phẩm</th>
                         <th className="border p-2">Tên sản phẩm</th>
                         <th className="border p-2">Năm sản xuất</th>
+                        <th className="border p-2">Cấu hình</th>
                         <th className="border p-2">Hình ảnh</th>
                         <th className="border p-2">Số lượng còn</th>
                         <th className="border p-2">Hành động</th>
@@ -294,6 +295,7 @@ const UpdateProductVariant: React.FC = () => {
                             <td className="border p-2">{'SPV' + variant.id}</td>
                             <td className="border p-2">{variant.product.name}</td>
                             <td className="border p-2">{variant.size}</td>
+                            <td className="border p-2">{variant.color}</td>
                             <td className="border p-2 flex justify-center">
                                 <img
                                     src={`${process.env.REACT_APP_BASE_URL}/files/preview/${variant.imageAvatar}`}

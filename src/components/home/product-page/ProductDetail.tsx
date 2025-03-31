@@ -333,18 +333,18 @@ const ProductDetail: React.FC = () => {
     console.log("Quantity:", quantity);
   };
 
-  const handleSizeSelect = async (size: number) => {
-    setSelectedSize(size);
-    console.log("Size:", size);
-    if (selectedColor) {
-      const response = await getVariantByColorAndSize(
-        size,
-        selectedColor,
-        Number(productDetail?.product.id)
-      );
-      setProductDetail(response.data);
-    }
-  };
+  // const handleSizeSelect = async (size: number) => {
+  //   setSelectedSize(size);
+  //   console.log("Size:", size);
+  //   if (selectedColor) {
+  //     const response = await getVariantByColorAndSize(
+  //       size,
+  //       selectedColor,
+  //       Number(productDetail?.product.id)
+  //     );
+  //     setProductDetail(response.data);
+  //   }
+  // };
 
   const handleAddToCartNow = async () => {
     if (isAuthenticated()) {
@@ -479,18 +479,68 @@ const ProductDetail: React.FC = () => {
     setMainImage(`${process.env.REACT_APP_BASE_URL}/files/preview/${image}`);
   };
 
+  // // const handleSizeSelect = async (size: number) => {
+  // //   setSelectedSize(size);
+  // //   console.log("Size:", size);
+  // //   if (selectedColor) {
+  // //     const response = await getVariantByColorAndSize(
+  // //       size,
+  // //       selectedColor,
+  // //       Number(productDetail?.product.id)
+  // //     );
+  // //     setProductDetail(response.data);
+  // //   }
+  // // };
+  // const handleColorSelect = async (color: string) => {
+  //   setSelectedSize(null);
+  //   setListSizeAvailable([]);
+  //   // setSelectedColor((prevColor) => (prevColor === color ? null : color));
+  //   setSelectedColor(color);
+  //   const response = await getAllVariantByColor(
+  //     color,
+  //     Number(productDetail?.product.id)
+  //   );
+  //   response.data.map((variant: Variant) => {
+  //     setListSizeAvailable((prev: number[]) => [...prev, variant.size]);
+  //   });
+  // };
+
+  const handleSizeSelect = async (size: number) => {
+    setSelectedSize(size);
+    console.log("Size:", size);
+    if (selectedColor) {
+      const response = await getVariantByColorAndSize(
+        size,
+        selectedColor,
+        Number(productDetail?.product.id)
+      );
+      setProductDetail(response.data);
+    }
+  };
+
   const handleColorSelect = async (color: string) => {
-    setSelectedSize(null);
-    setListSizeAvailable([]);
-    // setSelectedColor((prevColor) => (prevColor === color ? null : color));
     setSelectedColor(color);
-    const response = await getAllVariantByColor(
-      color,
-      Number(productDetail?.product.id)
-    );
-    response.data.map((variant: Variant) => {
-      setListSizeAvailable((prev: number[]) => [...prev, variant.size]);
-    });
+    if (selectedSize) {
+      const response = await getVariantByColorAndSize(
+        selectedSize,
+        color,
+        Number(productDetail?.product.id)
+      );
+      setProductDetail(response.data);
+    }
+
+    // setSelectedColor(color);
+    // const response = await getAllVariantByColor(
+    //   color,
+    //   Number(productDetail?.product.id)
+    // );
+    // const sizes = response.data.map((variant: Variant) => variant.size);
+    // setListSizeAvailable(sizes);
+
+    // //Nếu đã chọn size trước đó, kiểm tra xem size đó có khả dụng với màu mới không
+    // // if (selectedSize && !sizes.includes(selectedSize)) {
+    // //   setSelectedSize(null); // Reset size nếu không khả dụng
+    // // }
   };
 
   const container = {
@@ -600,7 +650,7 @@ const ProductDetail: React.FC = () => {
               </div>
 
               {/* <Typography variant="subtitle1">Thương hiệu: <strong>{productDetail.product.brand.name}</strong></Typography> */}
-              <Box display="flex" alignItems="flex-start" gap={2} mt={2}>
+              <Box display="flex" alignItems="center" gap={2} mt={2}>
                 <Typography
                   variant="h5"
                   color="red"
@@ -635,14 +685,16 @@ const ProductDetail: React.FC = () => {
               </Box>
               {/* <Typography variant="body2" mt={2}>{productDetail.product.description}</Typography> */}
 
-              <Box mt={2} display={"flex"} alignItems={"center"}>
-                <Typography variant="subtitle1">Thể loại:</Typography>
-                <Box display="flex" gap={1} marginLeft={2}>
-                  <strong>{productDetail.product.category.name}</strong>
+              <Box mt={1} display={"flex"} alignItems={"center"}>
+                <Typography variant="subtitle1">Bảo hành:</Typography>
+                <Box display="flex" gap={1} marginLeft={1}>
+                  <Typography variant="subtitle1">
+                    <strong>12 tháng tại LaptopKZ</strong>
+                  </Typography>
                 </Box>
               </Box>
 
-              <Box mt={2} display={"flex"} alignItems={"center"}>
+              <Box mt={1} display="flex" alignItems="center">
                 <Typography variant="subtitle1">Năm sản xuất:</Typography>
                 <Box display="flex" gap={1} marginLeft={2}>
                   {productDetail.sizes.map((size, index) => (
@@ -692,10 +744,64 @@ const ProductDetail: React.FC = () => {
                   ))}
                 </Box>
               </Box>
+              <Box mt={1} display="flex" alignItems="flex-start">
+                <Typography variant="subtitle1">Cấu hình:</Typography>
+              </Box>
+              <Box mt={1} display="flex" alignItems="flex-start">
+                <Box display="flex" gap={1} marginLeft={0}>
+                  {productDetail.colors.map((color, index) => (
+                    <Button
+                      key={index}
+                      variant="outlined"
+                      onClick={() => handleColorSelect(color)}
+                      sx={{
+                        position: "relative",
+                        paddingX: "8px",
+                        color: selectedColor === color ? "red" : "black",
+                        backgroundColor:
+                          selectedColor === color ? "white" : "transparent",
+                        borderColor: selectedColor === color ? "red" : "gray",
+                        borderWidth: selectedColor === color ? "2px" : "1px", // Tăng độ dày viền
+                        paddingRight: "20px",
+                        "&:hover": {
+                          backgroundColor: "white",
+                          borderColor: "red",
+                        },
+                      }}
+                    >
+                      {color}
+                      {selectedColor === color && (
+                        <span
+                          style={{
+                            position: "absolute",
+                            width: "20px",
+                            height: "20px",
+                            top: "-8px",
+                            right: "-4px",
+                            display: "flex", // Dùng flexbox để căn giữa
+                            alignItems: "center", // Căn giữa theo chiều dọc
+                            justifyContent: "center", // Căn giữa theo chiều ngang
+                            color: "white",
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            background: "red",
+                            borderRadius: "50%",
+                            border: "red",
+                          }}
+                        >
+                          ✔
+                        </span>
+                      )}
+                    </Button>
+                  ))}
+                </Box>
+              </Box>
 
               <Box mt={2}>
                 <Box display="flex" alignItems="center" gap={0}>
-                  <Typography variant="subtitle1" sx={{marginRight: '52px'}}>Số lượng:</Typography>
+                  <Typography variant="subtitle1" sx={{ marginRight: "52px" }}>
+                    Số lượng:
+                  </Typography>
 
                   <Button
                     onClick={() => handleQuantityChange("decrement")}
@@ -705,9 +811,9 @@ const ProductDetail: React.FC = () => {
                       height: "24px",
                       minWidth: "unset",
                       border: "1px solid red", // Thêm viền đen
-                      borderRadius: '0px',
-                      borderTopLeftRadius: "4px",  // Bo góc trên bên phải
-                      borderBottomLeftRadius: "4px", 
+                      borderRadius: "0px",
+                      borderTopLeftRadius: "4px", // Bo góc trên bên phải
+                      borderBottomLeftRadius: "4px",
                       backgroundColor: "white",
                       color: "red",
                       fontWeight: "bold",
@@ -726,8 +832,8 @@ const ProductDetail: React.FC = () => {
                       width: "40px",
                       height: "24px",
 
-                      borderBottom: "1px solid red", 
-                      borderTop: "1px solid red", 
+                      borderBottom: "1px solid red",
+                      borderTop: "1px solid red",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -745,11 +851,11 @@ const ProductDetail: React.FC = () => {
                       height: "24px",
                       minWidth: "unset",
                       border: "1px solid red", // Thêm viền đen
-                      borderRadius: '0px',
-                      borderTopRightRadius: "4px",  // Bo góc trên bên phải
-                      borderBottomRightRadius: "4px", // Bo góc dưới bên phải  
+                      borderRadius: "0px",
+                      borderTopRightRadius: "4px", // Bo góc trên bên phải
+                      borderBottomRightRadius: "4px", // Bo góc dưới bên phải
                       backgroundColor: "white",
-                      marginRight: '80px',
+                      marginRight: "80px",
                       color: "red",
                       fontWeight: "bold",
                       "&:hover": {
@@ -772,18 +878,10 @@ const ProductDetail: React.FC = () => {
                       variant="caption"
                       color="error"
                       className="mt-1"
-                    
                     >
                       Hiện còn {productDetail.stockQuantity} sản phẩm
                     </Typography>
                   )}
-              </Box>
-
-              <Box mt={2} display={"flex"} gap={1}>
-                <Typography variant="subtitle1">Cấu hình:</Typography>
-                <Box display="flex" gap={1} marginLeft={2}>
-                  {productDetail.product.description}
-                </Box>
               </Box>
 
               <Box mt={2}>
@@ -795,7 +893,10 @@ const ProductDetail: React.FC = () => {
                     {address ? address : "Chưa có địa chỉ phù hợp"}
                   </Typography>
 
-                  <Button onClick={() => setIsWantChange(true)} sx={{color: 'red'}}>
+                  <Button
+                    onClick={() => setIsWantChange(true)}
+                    sx={{ color: "red" }}
+                  >
                     Thay đổi
                   </Button>
                 </Box>

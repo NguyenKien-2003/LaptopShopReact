@@ -180,6 +180,17 @@ const TopProductList: React.FC = () => {
                 ))}
             </motion.div>
             </div>
+            
+            {/* ProductDialog placed correctly outside the map loop */}
+            {selectedProduct && (
+                <ProductDialog
+                    isOpen={isOpenProductDialog}
+                    onClose={handleCloseProductDialog}
+                    handleCloseProductDialog={handleCloseProductDialog}
+                    product={selectedProduct}
+                    setProduct={setSelectedProduct}
+                />
+            )}
             <ToastContainer />
         </section>
     );

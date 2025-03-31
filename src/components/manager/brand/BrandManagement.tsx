@@ -39,7 +39,7 @@ const BrandManagement: React.FC = () => {
             const response = await createBrand(newBrandName, newBrandDescription);
             setBrands([...brands, response.data]);
             if (response) {
-                toast.success('Thêm Nhà xuất bản thành công', {
+                toast.success('Thêm hãng sản xuất thành công', {
                     autoClose: 3000,
                 });
             }
@@ -47,7 +47,7 @@ const BrandManagement: React.FC = () => {
             fetchAllBrands(currentPage);
         } catch (error) {
             console.error('Error creating brand:', error);
-            toast.error('Thêm Nhà xuất bản thất bại', {
+            toast.error('Thêm hãng sản xuất thất bại', {
                 autoClose: 3000,
             });
         }
@@ -98,20 +98,20 @@ const BrandManagement: React.FC = () => {
                 const response = await updateBrand(selectedBrand.id, newBrandUpdateName, newBrandUpdateDescription);
                 fetchAllBrands(currentPage);
                 if (response) {
-                    toast.success('Chỉnh sửa Nhà xuất bản thành công', {
+                    toast.success('Chỉnh sửa hãng sản xuất thành công', {
                         autoClose: 3000,
                     });
                 }
                 handleCloseEdit();
             } else {
-                toast.error('Chỉnh sửa Nhà xuất bản thất bại', {
+                toast.error('Chỉnh sửa hãng sản xuất thất bại', {
                     autoClose: 3000,
                 });
             }
             handleCloseEdit();
         } catch (error) {
             console.error('Error updating brand:', error);
-            toast.error('Chỉnh sửa Nhà xuất bản thất bại', {
+            toast.error('Chỉnh sửa hãng sản xuất thất bại', {
                 autoClose: 3000,
             });
         }
@@ -128,7 +128,7 @@ const BrandManagement: React.FC = () => {
 
     const handleDelete = (id: number) => {
         Swal.fire({
-            title: 'Bạn có chắc chắn muốn xóa Nhà xuất bản này?',
+            title: 'Bạn có chắc chắn muốn xóa hãng sản xuất này?',
             text: "Dữ liệu sẽ không thể khôi phục sau khi xóa!",
             icon: 'warning',
             confirmButtonText: 'Xóa',
@@ -144,11 +144,11 @@ const BrandManagement: React.FC = () => {
                         fetchAllBrands(currentPage);
                         Swal.fire(
                             'Đã xóa!',
-                            'Nhà xuất bản đã được xóa.',
+                            'Hãng sản xuất đã được xóa.',
                             'success'
                         );
                     } catch {
-                        toast.error("Không thể xóa nhà xuất bản")
+                        toast.error("Không thể xóa hãng sản xuất")
                     }
                 }
             }
@@ -161,7 +161,7 @@ const BrandManagement: React.FC = () => {
             <div className="mb-4">
                 <h1 className="text-2xl font-bold flex items-center">
                     <FaTrademark className='mr-5' />
-                    Quản lý Nhà xuất bản
+                    Quản lý hãng sản xuất
                 </h1>
             </div>
 
@@ -170,7 +170,7 @@ const BrandManagement: React.FC = () => {
                 <h2 className="text-lg font-semibold mb-2">Bộ lọc và tìm kiếm</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                     <div className='flex col-span-1 items-center'>
-                        <label className="text-gray-700 mb-1 w-28">Tên Nhà xuất bản:</label>
+                        <label className="text-gray-700 mb-1 w-28">Tên hãng sản xuất:</label>
                         <input
                             type="text"
                             placeholder="Tìm kiếm"
@@ -192,22 +192,22 @@ const BrandManagement: React.FC = () => {
 
             {/* Bảng danh sách */}
             <div className="bg-white p-4 rounded-md shadow">
-                <h2 className="text-lg font-semibold mb-2">Danh sách Nhà xuất bản</h2>
+                <h2 className="text-lg font-semibold mb-2">Danh sách hãng sản xuất</h2>
                 <div>
                     <div className="flex justify-end mb-4">
                         <button onClick={handleOpen} className="bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600">
-                            Thêm Nhà xuất bản
+                            Thêm hãng sản xuất
                         </button>
                     </div>
 
                     {/* Modal thêm brand */}
                     <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
-                        <DialogTitle>Thêm Nhà xuất bản mới</DialogTitle>
+                        <DialogTitle>Thêm hãng sản xuất mới</DialogTitle>
                         <DialogContent>
                             <TextField
                                 autoFocus
                                 margin="dense"
-                                label="Tên Nhà xuất bản"
+                                label="Tên hãng sản xuất"
                                 type="text"
                                 fullWidth
                                 variant="outlined"
@@ -238,7 +238,7 @@ const BrandManagement: React.FC = () => {
                     <thead>
                         <tr className="bg-orange-500 text-white">
                             <th className="border p-2">STT</th>
-                            <th className="border p-2">Tên Nhà xuất bản</th>
+                            <th className="border p-2">Tên hãng sản xuất</th>
                             <th className="border p-2">Mô tả</th>
                             <th className="border p-2">Hành động</th>
                         </tr>
@@ -258,12 +258,12 @@ const BrandManagement: React.FC = () => {
                                     </div>
                                 </td>
                                 <Dialog open={openEdit} onClose={handleCloseEdit} maxWidth="xs" fullWidth>
-                                    <DialogTitle>Chỉnh sửa Nhà xuất bản</DialogTitle>
+                                    <DialogTitle>Chỉnh sửa hãng sản xuất</DialogTitle>
                                     <DialogContent>
                                         <TextField
                                             autoFocus
                                             margin="dense"
-                                            label="Tên Nhà xuất bản"
+                                            label="Tên hãng sản xuất"
                                             type="text"
                                             fullWidth
                                             variant="outlined"

@@ -114,9 +114,9 @@ export const getVariantByColor = async (color: string, productId: number) => {
 }
 
 export const getAllVariantByColor = async (color: string, productId: number) => {
-    const encodedColor = encodeURIComponent(color);
+    // const encodedColor = encodeURIComponent(color);
     console.log('color', color);
-    return (await axios.get(`${BASE_URL}/products/public/variant/details-change-color/${productId}?color=${encodedColor}`));
+    return (await axios.get(`${BASE_URL}/products/public/variant/details-change-color/${productId}?color=${color}`));
 }
 
 export const getVariantByColorAndSize = async (size: number, color: string, productId: number) => {

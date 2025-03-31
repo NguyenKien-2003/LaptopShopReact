@@ -445,9 +445,9 @@ const ProductDialog: React.FC<ProductDialogProps> = ({ isOpen, product, onClose,
             <div className='relative mr-[5%]'>
               {product.price !== product.priceAfterDiscount && <DiscountLabel discount={product.discountRate} />}
             </div>
-            <Typography variant="h6">Tên sản phẩm: <strong>{product.product.name}</strong></Typography>
-            <Typography variant="subtitle1">Nhà xuất bản: <strong>{product.product.brand.name}</strong></Typography>
-            <Typography variant="h5" color="red" mt={2}>
+            <Typography variant="h6"> <strong>{product.product.name}</strong></Typography>
+            <Typography variant="subtitle1">Hãng sản xuất: <strong>{product.product.brand.name}</strong></Typography>
+            <Typography variant="h5" color="red" mt={1}>
               {product.priceAfterDiscount.toLocaleString()}  VNĐ
             </Typography>
             {
@@ -479,7 +479,6 @@ const ProductDialog: React.FC<ProductDialogProps> = ({ isOpen, product, onClose,
                     key={index}
                     variant={selectedSize === size ? 'contained' : 'outlined'}
                     onClick={() => handleSizeSelect(size)}
-                    disabled={selectedColor === null || !listSizeAvailable.includes(size)}
                   >
                     {size}
                   </Button>
