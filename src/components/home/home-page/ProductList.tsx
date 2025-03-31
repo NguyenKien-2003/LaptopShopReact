@@ -116,7 +116,7 @@ const ProductList: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     className="flex items-center justify-between mb-8"
                 >
-                    <h2 className="text-3xl font-bold text-gray-800 relative">
+                    <h2 className="text-2xl font-bold text-gray-800 relative">
                         SẢN PHẨM MỚI
                         <span className="block h-1 w-20 bg-red-600 mt-2"></span>
                     </h2>

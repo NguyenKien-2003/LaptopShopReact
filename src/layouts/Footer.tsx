@@ -2,14 +2,12 @@ import React from 'react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-gray-800 text-white p-6">
+        <footer className="bg-footerbg text-footertext">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Company Information */}
-                <div className="space-y-4 mt-4">
-                    <div className="flex items-center space-x-2 justify-center">
-                        <img src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-book-logo-template-logo-book-education-vector-png-image_12530726.png" alt="" width="50" height="50" className="hover:cursor-pointer" />
-                    </div>
-                    <p>Địa chỉ: Yên Hòa Cầu Giấy, Việt Nam</p>
+                <div className="space-y-4">
+                <h3 className="font-semibold text-lg text-footerh">LAPTOPKZ</h3>
+                    <p>Địa chỉ: Phú Diễn,Bắc Từ Liêm, Hà Nội</p>
                     <p>Điện thoại: 0123456789</p>
                     <p>Email: abc@gmail.com</p>
                     <div className="flex space-x-3 justify-center">
@@ -30,7 +28,7 @@ const Footer: React.FC = () => {
 
                 {/* Company Information Links */}
                 <div className="space-y-2">
-                    <h3 className="font-semibold text-lg">THÔNG TIN CỦA CHÚNG TÔI</h3>
+                    <h3 className="font-semibold text-lg  text-footerh">THÔNG TIN CỦA CHÚNG TÔI</h3>
                     <p>Cơ sở 1: 100 Cầu Giấy, Hà Nội, Việt Nam</p>
                     <p>Cơ sở 2: 100 Hoàn Kiếm, Hà Nội, Việt Nam</p>
                     <p>Lĩnh vực kinh doanh</p>
@@ -38,7 +36,7 @@ const Footer: React.FC = () => {
 
                 {/* Policies and Support */}
                 <div className="space-y-2">
-                    <h3 className="font-semibold text-lg">CHÍNH SÁCH</h3>
+                    <h3 className="font-semibold text-lg  text-footerh">CHÍNH SÁCH</h3>
                     <p>Chính sách bảo hành</p>
                     <p>Chính sách đổi trả</p>
                     <p>Chính sách thanh toán</p>
@@ -47,7 +45,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className='space-y-2'>
-                    <h3 className="font-semibold text-lg">HỖ TRỢ CHUNG</h3>
+                    <h3 className="font-semibold text-lg  text-footerh">HỖ TRỢ CHUNG</h3>
                     <p>Trang chủ</p>
                     <p>Giới thiệu</p>
                     <p>Sản phẩm</p>
@@ -55,7 +53,7 @@ const Footer: React.FC = () => {
                 </div>
             </div>
             <div className="text-center mt-6 border-t border-gray-700 pt-4">
-                <p className="text-sm">&copy; {new Date().getFullYear()} Công ty TNHH XYZ. Bảo lưu mọi quyền.</p>
+                <p className="text-sm">&copy; {new Date().getFullYear()} Công ty TNHH LAPTOPKZ. Bảo lưu mọi quyền.</p>
             </div>
         </footer>
     );
