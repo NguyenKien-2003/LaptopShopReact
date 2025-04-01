@@ -8,12 +8,12 @@ const Intro = () => {
         <section>
           <h2 className="text-xl font-bold text-gray-800">I/ Tầm nhìn</h2>
           <p className="text-gray-600 mt-2">
-            Tại FPT SHOP, chúng tôi luôn hướng đến việc cải tiến chất lượng trải nghiệm của khách hàng thông qua việc đa dạng hóa các loại sản phẩm, đầu tư nghiên cứu để đưa ra những tư vấn phù hợp với từng khách hàng một. Và với định hướng trở thành một trong những cửa hàng cung cấp các sản phẩm sách tốt nhất Việt Nam, FPT SHOP luôn hướng đến những giá trị cốt lõi cho khách hàng bao gồm:
+            Tại LaptopKZ, chúng tôi luôn hướng đến việc cải tiến chất lượng trải nghiệm của khách hàng thông qua việc đa dạng hóa các loại sản phẩm, đầu tư nghiên cứu để đưa ra những tư vấn phù hợp với từng khách hàng một. Và với định hướng trở thành một trong những cửa hàng cung cấp các sản phẩm công nghệ tốt nhất Việt Nam, LaptopKZ luôn hướng đến những giá trị cốt lõi cho khách hàng bao gồm:
           </p>
           <ul className="list-decimal list-inside mt-4 space-y-2 text-gray-600">
             <li><strong>Trải nghiệm hoàn hảo:</strong> Thông qua việc tư vấn, hỗ trợ khách hàng tận tâm và nhanh nhất có thể.</li>
-            <li><strong>Sản phẩm chính hãng:</strong> Sản phẩm được FPT SHOP mua trực tiếp từ công ty và các trang web uy tín nên các bạn có thể yên tâm về nguồn gốc sản phẩm.</li>
-            <li><strong>Chế độ dịch vụ:</strong> Những sản phẩm giày đá banh tại FPT SHOP được bảo hành 3 tháng, hỗ trợ trả góp 0% lãi suất qua Fundiin, Freeship toàn quốc khi khách hàng thanh toán chuyển khoản trước, tặng vớ & balo khi mua giày.</li>
+            <li><strong>Sản phẩm chính hãng:</strong> Sản phẩm được LaptopKZ nhập khẩu chính hãng nên các bạn có thể yên tâm về nguồn gốc sản phẩm.</li>
+            <li><strong>Chế độ dịch vụ:</strong> Những sản phẩm tại LaptopKZ được bảo hành 12 tháng, hỗ trợ trả góp 0% lãi suất, Freeship toàn quốc khi khách hàng đặt cọc trước.</li>
           </ul>
         </section>
 
@@ -27,12 +27,11 @@ const Intro = () => {
 
         {/* Phần Cửa hàng */}
         <section>
-          <h2 className="text-xl font-bold text-gray-800">III/ Cửa hàng của FPT SHOP</h2>
+          <h2 className="text-xl font-bold text-gray-800">III/ Cửa hàng của LaptopKZ</h2>
           <div className="text-gray-600 mt-2 space-y-2">
-            <p><strong>FPT SHOP Store 1:</strong> 100 Cầu Giấy, Hà Nội, Việt Nam | ĐT: 0123456789</p>
-            <p><strong>FPT SHOP Store 2:</strong> 100 Hoàn Kiếm, Hà Nội, Việt Nam | ĐT: 0123456789</p>
+            <p><strong>LaptopKZ Store 1:</strong> Phú Diễn, Bắc Từ Liêm, Hà Nội | ĐT: 855678736</p>
             <p>Hoạt động từ 9h tới 21h hằng ngày và cả 7 ngày trong tuần. Rất vui được đón tiếp các bạn.</p>
-            <p>Xin cảm ơn các bạn đã tin tưởng và ủng hộ FPT SHOP.</p>
+            <p>Xin cảm ơn các bạn đã tin tưởng và ủng hộ LaptopKZ.</p>
           </div>
         </section>
       </div>

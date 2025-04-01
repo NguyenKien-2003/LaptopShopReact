@@ -279,14 +279,14 @@ const AllProdduct: React.FC = () => {
                         >
                             <Button
                                 variant="contained"
-                                color="primary"
+                                color="error"
                                 onClick={() => setSize(size + 6)}
                                 size="large"
                                 className="px-8 py-2.5"
                                 sx={{
                                     borderRadius: '30px',
                                     boxShadow: '0 4px 14px rgba(0, 0, 0, 0.1)',
-                                    background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+                                    background: 'linear-gradient(45deg, #D32F2F 30%, #FF5252 90%)',
                                 }}
                             >
                                 Tải thêm sản phẩm

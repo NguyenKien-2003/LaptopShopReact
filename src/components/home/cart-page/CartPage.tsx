@@ -241,7 +241,7 @@ const CartPage: FC = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell align="center">Sản phẩm</TableCell>
-                                <TableCell align="center">Năm xuất / tái bản</TableCell>
+                                <TableCell align="center">Năm sản xuất</TableCell>
                                 <TableCell align="center">Đơn giá</TableCell>
                                 <TableCell align="center">Số lượng</TableCell>
                                 {/* <TableCell align="center">Khuyến mãi</TableCell> */}

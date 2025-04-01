@@ -12,7 +12,7 @@ interface ColorSelectorProps {
 const ColorSelector: React.FC<ColorSelectorProps> = ({ availableColors, selectedColors, onSelectColor, onClose, open }) => {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Chọn màu sắc</DialogTitle>
+      <DialogTitle>Chọn Cấu hình</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
           {availableColors.map((color) => (

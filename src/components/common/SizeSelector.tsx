@@ -12,7 +12,7 @@ interface SizeSelectorProps {
 const SizeSelector: React.FC<SizeSelectorProps> = ({ availableSizes, selectedSizes, onSelectSize, onClose, open }) => {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Chọn kích cỡ</DialogTitle>
+      <DialogTitle>Chọn năm sản xuất</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
           {availableSizes.map((size) => (

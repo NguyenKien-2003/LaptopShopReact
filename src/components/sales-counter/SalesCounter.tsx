@@ -491,7 +491,7 @@ const SalesCounter: React.FC = () => {
             <html>
                 <head>
                     <title>Hóa đơn</title>
-                    <img src="/logo192.png" alt="Logo" class="product-img">
+                    <img src="/logokz.jpg" alt="Logo" class="product-img">
                     <style>
                         body {
                             font-family: Arial, sans-serif;
@@ -532,7 +532,7 @@ const SalesCounter: React.FC = () => {
                     </style>
                 </head>
                 <body>
-                    <h1>SHOP GIÀY FPT</h1>
+                    <h1>LaptopKZ</h1>
                         <p>Địa chỉ: 100 Cầu Giấy, Hà Nội</p>
                         <p>Nhân viên: ${order.staff.name}</p>
                         <p><strong>Thời gian tạo:</strong> ${formatDate(order.createdAt)}</p>

@@ -596,13 +596,13 @@ const ProductDetail: React.FC = () => {
 
   return (
     <Box>
-      <Box sx={{ marginX: "14%" }}>
+      <Box sx={{ marginX: "12%" }}>
         {productDetail && (
           <Grid container spacing={2}>
-            <Box>
+            <Box width={1/2}>
               <Typography
                 variant="h6"
-                sx={{ fontSize: "20px", marginLeft: "-32px" }}
+                sx={{ fontSize: "20px", marginBottom: "12px", display: "flex" , justifyContent:'flex-start' }}
               >
                 <strong>{productDetail.product.category.name}</strong> &gt;{" "}
                 <strong>{productDetail.product.brand.name}</strong> &gt;{" "}
@@ -944,7 +944,7 @@ const ProductDetail: React.FC = () => {
               }}
             />
 
-            <Typography variant="h5" mt={5}>
+            <Typography variant="h5" mt={5} className="uppercase">
               Danh sách sản phẩm liên quan
             </Typography>
 

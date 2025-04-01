@@ -218,7 +218,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                 >
                   <Chip
                     label={`${category.name}`}
-                    onDelete={() => handleRemoveBrandFilter(category.id)}
+                    onDelete={() => handleRemoveCategoryFilter(category.id)}
                     color="info"
                     variant="outlined"
                     className="shadow-sm"
