@@ -9,6 +9,7 @@ import {
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useProfile } from "../../contexts/ProfileContext";
+import Header from "../../layouts/Header";
 
 interface ManagerHeaderProps {
   toggleSidebar: () => void;
@@ -78,18 +79,21 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
 
   return (
     <header
-      className="bg-white fixed w-full top-0 flex justify-between px-[120px]"
-      style={{ zIndex: 1100 }}
+      className="bg-red-custom fixed w-full top-0 flex justify-between px-[120px] "
+      style={{ zIndex: 1200 }}
     >
-      <div>
+      {/* <div>
         <img
           src="/assets/img/logo/logokz.jpg"
-          alt="Logo"
+          alt="Logo"  
           width="80"
           height="80"
           className="hover:cursor-pointer"
           onClick={() => navigate("/")}
         />
+      </div> */}
+      <div>
+        <Header />
       </div>
       <div className="flex justify-between items-center px-4 py-2">
         <div className="flex items-center">
@@ -107,7 +111,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
               className="flex items-center space-x-4 cursor-pointer"
               onClick={toggleDropdown}
             >
-              <span className=" font-medium">{profile.name}</span>
+             
               <img
                 src={profile.avatarUrl}
                 alt="User Avatar"
@@ -115,8 +119,9 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
                />
             </div>
             {isDropdownOpen && (
-              <div className="fixed right-[120px] mt-[66px] w-48 bg-white rounded-md shadow-lg py-2"  style={{ zIndex:9999}}>
+              <div className="fixed right-[120px] mt-[8px] w-48 bg-white rounded-md shadow-lg py-2"  style={{ zIndex:9999}}>
                 {isManager && (
+                  
                   <Link
                     to="/manager/sales-counter"
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -137,7 +142,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                   onClick={toggleDropdown}
                 >
-                  Thông tin cá nhân
+                   {profile.name}
                 </Link>
                 <Link
                   to="/manager/change-password"

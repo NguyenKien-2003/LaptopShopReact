@@ -22,12 +22,12 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className="sticky top-0 bg-red-custom text-white p-2 left-0 right-0  px-[120px] mb-[-132px] mt-[-10px]"
+      className="fixed top-0 bg-red-custom text-white left-0 right-0 pl-[120px]  pr-[200px]"
       style={{ zIndex: 1100 }}
     >
       <div className="container mx-auto flex items-center justify-between">
         <nav className="mt-2">
-          <ul className="flex space-x-6 justify-center text-lg">
+          <ul className="flex space-x-6 justify-center text-lg">  
             <li>
               <NavLink
                 to="/"
@@ -81,14 +81,14 @@ const Header: React.FC = () => {
         </nav>
         <div className=" flex items-center">
           {/* Search Bar */}
-          <div className="relative flex-grow mx-8 flex ">
+          <div className="relative flex-grow mx-8 flex py-2">
             <input
               type="text"
               placeholder="Tìm kiếm.."
-              className="w-[400px] p-2 px-4 border border-gray-300 focus:outline-none rounded-xl"
+              className="w-[400px] p-2 border border-gray-300 focus:outline-none rounded-xl text-red-700"
               onChange={(e) => handleChangeKeyword(e.target.value)}
             />
-            <button className="absolute right-4 top-2 text-gray-500 rounded-r-md focus:outline-none flex justify-center items-center" >
+            <button className="absolute right-4 top-4 text-gray-500 rounded-r-md focus:outline-none flex justify-center items-center" >
               <FaSearch size={24} />
             </button>
           </div>

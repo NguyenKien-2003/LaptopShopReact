@@ -26,7 +26,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
       {
         !shouldHideHeader ? <Header /> : null
       }
-      <main className="my-2 mt-36 min-h-[48vh]">
+      <main className="my-2 min-h-[48vh]">
         {children}
       </main>
       <Footer />

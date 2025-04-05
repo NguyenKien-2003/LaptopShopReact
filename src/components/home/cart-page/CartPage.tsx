@@ -242,6 +242,7 @@ const CartPage: FC = () => {
                             <TableRow>
                                 <TableCell align="center">Sản phẩm</TableCell>
                                 <TableCell align="center">Năm sản xuất</TableCell>
+                                <TableCell align="center">Cấu hình</TableCell>
                                 <TableCell align="center">Đơn giá</TableCell>
                                 <TableCell align="center">Số lượng</TableCell>
                                 {/* <TableCell align="center">Khuyến mãi</TableCell> */}
@@ -268,6 +269,7 @@ const CartPage: FC = () => {
                                                 </div>
                                             </TableCell>
                                             <TableCell align="center">{item.productVariantDetailsResponse.size}</TableCell>
+                                            <TableCell align="center">{item.productVariantDetailsResponse.color}</TableCell>
                                             {
                                                 item.productVariantDetailsResponse.discountRate > 0 ? (
                                                     <TableCell align="center">

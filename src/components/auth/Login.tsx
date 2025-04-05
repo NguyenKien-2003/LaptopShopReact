@@ -105,15 +105,15 @@ const Login: React.FC = () => {
                                     fullWidth
                                     error={Boolean(errors.password)}
                                     helperText={errors.password?.message}
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton edge="end" onClick={() => setShowPassword(!showPassword)}>
-                                                    {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        )
-                                    }}
+                                    // InputProps={{
+                                    //     endAdornment: (
+                                    //         <InputAdornment position="end">
+                                    //             <IconButton edge="end" onClick={() => setShowPassword(!showPassword)}>
+                                    //                 {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                                    //             </IconButton>
+                                    //         </InputAdornment>
+                                    //     )
+                                    // }}
                                 />
                             )}
                         />

@@ -146,15 +146,15 @@ const Signup: React.FC = () => {
                                     value={value}
                                     error={Boolean(errors.password)}
                                     helperText={errors.password?.message}
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton edge="end" onClick={() => setShowPassword(!showPassword)}>
-                                                    {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        )
-                                    }}
+                                    // InputProps={{
+                                    //     endAdornment: (
+                                    //         <InputAdornment position="end">
+                                    //             <IconButton edge="end" onClick={() => setShowPassword(!showPassword)}>
+                                    //                 {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                                    //             </IconButton>
+                                    //         </InputAdornment>
+                                    //     )
+                                    // }}
                                 />
                             )}
                             name="password"
@@ -177,15 +177,15 @@ const Signup: React.FC = () => {
                                     value={value}
                                     error={Boolean(errors.repassword)}
                                     helperText={errors.repassword?.message}
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton edge="end" onClick={() => setShowRePassword(!showRePassword)}>
-                                                    {showRePassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        )
-                                    }}
+                                    // InputProps={{
+                                    //     endAdornment: (
+                                    //         <InputAdornment position="end">
+                                    //             <IconButton edge="end" onClick={() => setShowRePassword(!showRePassword)}>
+                                    //                 {showRePassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                                    //             </IconButton>
+                                    //         </InputAdornment>
+                                    //     )
+                                    // }}
                                 />
                             )}
                             name="repassword"

@@ -486,6 +486,21 @@ const ProductDialog: React.FC<ProductDialogProps> = ({ isOpen, product, onClose,
               </Box>
             </Box>
 
+            <Box mt={2} display={'flex'} alignItems={'center'}>
+              <Typography variant="subtitle1">Cấu hình:</Typography>
+              <Box display="flex" gap={1} marginLeft={2}>
+                {product.colors.map((color, index) => (
+                  <Button
+                    key={index}
+                    variant={selectedColor === color ? 'contained' : 'outlined'}
+                    onClick={() => handleColorSelect(color)}
+                  >
+                    {color}
+                  </Button>
+                ))}
+              </Box>
+            </Box>
+
             <Box mt={2}>
               <Box display="flex" alignItems="center" gap={2}>
                 <Typography variant="subtitle1">Số lượng:</Typography>
