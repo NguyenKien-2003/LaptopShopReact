@@ -23,6 +23,7 @@ import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
 import Pagination from "../../common/Pagination";
 import { Statuses } from "../../../models/response/Statuses";
+import axios from "axios";
 
 const OrderManagement: React.FC = () => {
   // State để lưu trạng thái label đang được chọn
@@ -36,11 +37,32 @@ const OrderManagement: React.FC = () => {
   const [totalPages, setTotalPages] = React.useState(1);
   const [statuses, setStatuses] = useState<Statuses[]>([]);
 
+  
+
   const fetchAllOrders = async (page: number) => {
     const response = await getOrdersByStatus(keyword, page, 10, '', '', selectedStatus, startDate, endDate);
     setOrders(response.data.content);
     setTotalPages(response.data.page.totalPages);
   };
+    // Hàm tải file Excel
+    const handleExportExcel = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/orders/export/excel", {
+          responseType: "blob", // Đảm bảo nhận dữ liệu dạng file
+        });
+  
+        // Tạo link để tải file
+        const link = document.createElement("a");
+        const file = new Blob([response.data], {
+          type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        });
+        link.href = URL.createObjectURL(file);
+        link.download = "orders.xlsx"; // Tên file xuất
+        link.click();
+      } catch (error) {
+        console.error("Error exporting to Excel:", error);
+      }
+    };
 
   const handleDelete = (id: number) => {
     Swal.fire({
@@ -115,9 +137,13 @@ const OrderManagement: React.FC = () => {
       </Box>
 
       {/* Add Invoice Button */}
+     
       <Box display="flex" justifyContent="flex-end" mb={2}>
         <Button variant="contained" color="primary" onClick={() => navigate("/manager/sales-counter")}>
           + Tạo đơn
+        </Button>
+        <Button variant="contained" color="success" onClick={handleExportExcel} sx={{ ml: 2 }}>
+          Xuất Excel 
         </Button>
       </Box>
 

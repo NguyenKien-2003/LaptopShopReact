@@ -103,27 +103,39 @@ const Slideshow: React.FC = () => {
   }, []);
 
   return (
-    <section className="px-2">
-      <Carousel
-        selectedItem={currentSlide}
-        showThumbs={false}
-        showStatus={false}
-        autoPlay={false}
-        onChange={(index) => setCurrentSlide(index)} // Cập nhật slide khi người dùng chọn
-      >
-        {slides.map((slide, index) => (
-          <Link to={`/product-detail/${slide.id}`}>
-            <div key={slide.id} className="relative">
-              <img
-                src={slide.src}
-                alt={slide.alt}
-                className="w-full h-auto cursor-pointer rounded-xl"
-              />
-            </div>
-          </Link>
-        ))}
-      </Carousel>
-    </section>
+    <div className="flex items-center">
+      <section className="px-2">
+        <Carousel
+          selectedItem={currentSlide}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={false}
+          onChange={(index) => setCurrentSlide(index)} // Cập nhật slide khi người dùng chọn
+        >
+          {slides.map((slide, index) => (
+            <Link to={`/product-detail/${slide.id}`}>
+              <div key={slide.id} className="relative">
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  className="w-full h-auto cursor-pointer rounded-xl"
+                />
+              </div>
+            </Link>
+          ))}
+        </Carousel>
+      </section>
+      <div className="w-[10900px] h-full flex-col justify-between mr-2">
+        <img
+          src="./assets/img/slideshow/k1.jpg"
+          className="w-full h-auto cursor-pointer rounded-xl"
+        />
+        <img
+          src="./assets/img/slideshow/k2.jpg"
+          className="w-full h-auto cursor-pointer rounded-xl mt-[7px]"
+        />
+      </div>
+    </div>
   );
 };
 export default Slideshow;

@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { deleteProduct, getAllProducts, updateStatusProduct } from '../../../services/product.service';
 import { Product } from '../../../models/Product';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductManagement: React.FC = () => {
   const navigate = useNavigate();
@@ -35,6 +36,26 @@ const ProductManagement: React.FC = () => {
       setLoading(false);
     }
   };
+
+  // Hàm tải file Excel
+      const handleExportExcel = async () => {
+        try {
+          const response = await axios.get("http://localhost:8080/products/export/excel", {
+            responseType: "blob", // Đảm bảo nhận dữ liệu dạng file
+          });
+    
+          // Tạo link để tải file
+          const link = document.createElement("a");
+          const file = new Blob([response.data], {
+            type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          });
+          link.href = URL.createObjectURL(file);
+          link.download = "products.xlsx"; // Tên file xuất
+          link.click();
+        } catch (error) {
+          console.error("Error exporting to Excel:", error);
+        }
+      };
 
   const handleStatusChange = async (id: number) => {
     try {
@@ -131,7 +152,10 @@ const ProductManagement: React.FC = () => {
             <Link to="/manager/add-product" className="bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600">
               Thêm sản phẩm
             </Link>
-          </div>
+            <button onClick={handleExportExcel} className="bg-green-500 text-white px-2 py-2 rounded-md hover:bg-green-600 ml-4">
+              Xuất Excel
+            </button>
+          </div>  
 
         </div>
         <table className="w-full table-auto border-collapse">

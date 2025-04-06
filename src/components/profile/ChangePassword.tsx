@@ -62,19 +62,19 @@ const ChangePassword: React.FC = () => {
                             error={!!errors.oldPassword}
                             helperText={errors.oldPassword?.message}
                             margin="normal"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            edge="end"
-                                            onClick={() => setShowOldPassword(!showOldPassword)}
-                                            sx={{ outline: 'none', border: 'none' }}
-                                        >
-                                            {showOldPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                )
-                            }}
+                            // InputProps={{
+                            //     endAdornment: (
+                            //         <InputAdornment position="end">
+                            //             <IconButton
+                            //                 edge="end"
+                            //                 onClick={() => setShowOldPassword(!showOldPassword)}
+                            //                 sx={{ outline: 'none', border: 'none' }}
+                            //             >
+                            //                 {showOldPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                            //             </IconButton>
+                            //         </InputAdornment>
+                            //     )
+                            // }}
                         />
                     )}
                 />
@@ -90,19 +90,19 @@ const ChangePassword: React.FC = () => {
                             error={!!errors.newPassword}
                             helperText={errors.newPassword?.message}
                             margin="normal"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            edge="end"
-                                            onClick={() => setShowNewPassword(!showNewPassword)}
-                                            sx={{ outline: 'none', border: 'none' }}
-                                        >
-                                            {showNewPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                )
-                            }}
+                            // InputProps={{
+                            //     endAdornment: (
+                            //         <InputAdornment position="end">
+                            //             <IconButton
+                            //                 edge="end"
+                            //                 onClick={() => setShowNewPassword(!showNewPassword)}
+                            //                 sx={{ outline: 'none', border: 'none' }}
+                            //             >
+                            //                 {showNewPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                            //             </IconButton>
+                            //         </InputAdornment>
+                            //     )
+                            // }}
                         />
                     )}
                 />
@@ -118,19 +118,19 @@ const ChangePassword: React.FC = () => {
                             error={!!errors.confirmPassword}
                             helperText={errors.confirmPassword?.message}
                             margin="normal"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            edge="end"
-                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                            sx={{ outline: 'none', border: 'none' }}
-                                        >
-                                            {showConfirmPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                )
-                            }}
+                            // InputProps={{
+                            //     endAdornment: (
+                            //         <InputAdornment position="end">
+                            //             <IconButton
+                            //                 edge="end"
+                            //                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            //                 sx={{ outline: 'none', border: 'none' }}
+                            //             >
+                            //                 {showConfirmPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
+                            //             </IconButton>
+                            //         </InputAdornment>
+                            //     )
+                            // }}
                         />
                     )}
                 />

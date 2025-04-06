@@ -63,9 +63,9 @@ function App() {
             <Route
               path="/login"
               element={
-                <Home>
+              
                   <Login />
-                </Home>
+              
               }
             />
             <Route

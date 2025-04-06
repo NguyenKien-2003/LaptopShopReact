@@ -26,7 +26,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
+  const shouldHideHeader = isManager && location.pathname.startsWith('/manager');
   const handleLogout = async () => {
     Swal.fire({
       title: "Bạn có chắc chắn muốn đăng xuất?",
@@ -80,7 +80,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
   return (
     <header
       className="bg-red-custom fixed w-full top-0 flex justify-between px-[120px] "
-      style={{ zIndex: 1200 }}
+      style={{ zIndex: 1400 }}
     >
       {/* <div>
         <img
@@ -93,7 +93,9 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
         />
       </div> */}
       <div>
-        <Header />
+      {
+        !shouldHideHeader ? <Header /> : null
+      }
       </div>
       <div className="flex justify-between items-center px-4 py-2">
         <div className="flex items-center">
@@ -111,7 +113,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
               className="flex items-center space-x-4 cursor-pointer"
               onClick={toggleDropdown}
             >
-             
+           
               <img
                 src={profile.avatarUrl}
                 alt="User Avatar"
@@ -131,19 +133,20 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
                   </Link>
                 )}
                 <Link
-                  to="/manager/my-order"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  onClick={toggleDropdown}
-                >
-                  Đơn hàng của tôi
-                </Link>
-                <Link
                   to="/manager/profile"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                   onClick={toggleDropdown}
                 >
                    {profile.name}
                 </Link>
+                <Link
+                  to="/manager/my-order"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  onClick={toggleDropdown}
+                >
+                  Đơn hàng của tôi
+                </Link>
+                
                 <Link
                   to="/manager/change-password"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -161,7 +164,7 @@ const ManagerHeader: React.FC<ManagerHeaderProps> = ({ toggleSidebar }) => {
             )}
           </div>
         ) : (
-          <Link to="/login" className="font-semibold">
+          <Link to="/login" className="fixed right-[80px] top-[10px] text-white font-semibold uppercase  bg-none py-2"  style={{ zIndex:9999}}>
             Đăng nhập
           </Link>
         )}
